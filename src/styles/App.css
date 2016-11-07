@@ -1,0 +1,28 @@
+/* Base Application Styles */
+html, body, #app, .index {
+  height: 100%;
+}
+
+body {
+  color: #fff;
+  background: #222;
+}
+
+.index .notice {
+  margin: 20px auto;
+  padding: 15px 0;
+  text-align: center;
+  border: 1px solid #000;
+  border-width: 1px 0;
+  background: #666;
+}
+
+
+.jumbotron h3 {
+  color: #333;
+}
+
+
+.form-group {
+  display: flex;
+}
