@@ -2,26 +2,26 @@
 React app that lets you search a github user and lists his repositories.
 
 
-# Start for development
+### Start for development
 npm start 
 
-# Start the dev-server with the dist version
+### Start the dev-server with the dist version
 npm run serve:dist
 
-# Just build the dist version and copy static files
+### Just build the dist version and copy static files
 npm run dist
 
-# Run unit tests
+### Run unit tests
 npm test
 
-# Auto-run unit tests on file changes
+### Auto-run unit tests on file changes
 npm run test:watch
 
-# Lint all files in src (also automatically done AFTER tests are run)
+### Lint all files in src (also automatically done AFTER tests are run)
 npm run lint
 
-# Clean up the dist directory
+### Clean up the dist directory
 npm run clean
 
-# Just copy the static assets
+### Just copy the static assets
 npm run copy
