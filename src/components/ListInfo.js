@@ -36,7 +36,6 @@ class ListInfo extends React.Component {
       userData = ( <p className="text-danger text-center">Github API is not responding.</p> )
     }
 
-    console.log(this.state)
     return (
         <div className='row results'>
           { userData }
