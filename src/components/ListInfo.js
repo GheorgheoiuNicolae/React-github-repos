@@ -5,13 +5,12 @@ class ListInfo extends React.Component {
 
   componentWillMount() {
     this.setState({
-      repos: mainStore.getRepos(),
-      requestInfo: mainStore.getRequestDetails()
+      data: mainStore.getData()
     });
 
     mainStore.on('change', () => {
       this.setState({
-        repos: mainStore.getRepos()
+        data: mainStore.getData()
       });
     });
   }
@@ -21,24 +20,29 @@ class ListInfo extends React.Component {
       color: '#000'
     }
 
-    let userdata;
-    if(this.state.repos.length){
-      userdata = (
+    let userData;
+    if(this.state.data.repos.length){
+      userData = (
         <div className="col-sm-4 user-data">
-          <img src={this.state.repos[0].owner.avatar_url} className="img-responsive"/>
-          <h3>{ this.state.repos[0].owner.login }</h3>
+          <img src={this.state.data.repos[0].owner.avatar_url} className="img-responsive"/>
+          <h3>{ this.state.data.repos[0].owner.login }</h3>
         </div>
       )
-    } else {
-      userData = ( <p className="text-danger">The user has no repos.</p> )
+    } else if(this.state.data.requestDetails.searchInitialized && !this.state.data.requestDetails.userNotFound && this.state.data.requestDetails.apiNotResponding){
+      userData = ( <p className="text-danger text-center">The user has no repos.</p> )
+    } else if(this.state.data.requestDetails.userNotFound){
+      userData = ( <p className="text-danger text-center">User not found.</p> )
+    } else if(this.state.data.requestDetails.apiNotResponding){
+      userData = ( <p className="text-danger text-center">Github API is not responding.</p> )
     }
 
+    console.log(this.state)
     return (
         <div className='row results'>
-          { userdata }
+          { userData }
 
           <div className="col-sm-8 user-repos">
-              {this.state.repos.map(function(repo, index){
+              {this.state.data.repos.map(function(repo, index){
                 return (
                   <div className="panel panel-default" key={ index }>
                     <div className="panel-heading">
@@ -46,7 +50,7 @@ class ListInfo extends React.Component {
                       <a href="https://github.com/{repo.full_name}" className="pull-right small" target="_blank">view</a>
                     </div>
                     <div className="panel-body">
-                      <p style={styles} className="text-dark">{ repo.description }</p>
+                      <p style={styles} >{ repo.description }</p>
                     </div>
                   </div>
                 )
