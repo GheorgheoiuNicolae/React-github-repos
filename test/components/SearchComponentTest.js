@@ -8,16 +8,16 @@
 // const TestUtils = React.addons.TestUtils;
 import createComponent from 'helpers/shallowRenderHelper';
 
-import Main from 'components/Main';
+import Search from 'components/SearchComponent';
 
-describe('MainComponent', () => {
-  let MainComponent;
+describe('SearchComponent', () => {
+  let SearchComponent;
 
   beforeEach(() => {
-    MainComponent = createComponent(Main);
+    SearchComponent = createComponent(Search);
   });
 
   it('should have its component name as default className', () => {
-    expect(MainComponent.props.className).to.equal('index container');
+    expect(SearchComponent.props.className).to.equal('search-component');
   });
 });

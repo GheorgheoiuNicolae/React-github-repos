@@ -32,23 +32,25 @@ class SearchComponent extends React.Component {
 
   render() {
     return (
-        <div className="search-component jumbotron text-center">
-          <h3>Repo finder</h3>
-          <div className="form-group">
-            <input
-                value={this.props.user}
-                onChange={this.handleChange.bind(this)}
-                onKeyPress={this.handleKeypress.bind(this)}
-                type="text"
-                className="form-control search"
-                placeholder="Github username" />
+        <div className="search-component">
+          <div className="jumbotron text-center">
+            <h3>Repo finder</h3>
+            <div className="form-group">
+              <input
+                  value={this.props.user}
+                  onChange={this.handleChange.bind(this)}
+                  onKeyPress={this.handleKeypress.bind(this)}
+                  type="text"
+                  className="form-control search"
+                  placeholder="Github username" />
 
-            <button
-              onClick={this.search.bind(this)}
-              className="btn btn-success"
-              type="button">
-                  Search
-            </button>
+              <button
+                onClick={this.search.bind(this)}
+                className="btn btn-success"
+                type="button">
+                    Search
+              </button>
+            </div>
           </div>
         </div>
     );

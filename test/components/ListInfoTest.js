@@ -8,16 +8,16 @@
 // const TestUtils = React.addons.TestUtils;
 import createComponent from 'helpers/shallowRenderHelper';
 
-import Main from 'components/Main';
+import ListInfo from 'components/ListInfo';
 
-describe('MainComponent', () => {
-  let MainComponent;
+describe('ListInfoComponent', () => {
+  let ListInfoComponent;
 
   beforeEach(() => {
-    MainComponent = createComponent(Main);
+    ListInfoComponent = createComponent(ListInfo);
   });
 
   it('should have its component name as default className', () => {
-    expect(MainComponent.props.className).to.equal('index container');
+    expect(ListInfoComponent.props.className).to.equal('row results');
   });
 });
